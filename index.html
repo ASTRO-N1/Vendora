@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vendora - Supply Solution for Street Food Vendors</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+      :root {
+        --color-primary: rgba(
+          0,
+          153,
+          204,
+          1
+        ); /* Replace with your actual primary blue if different */
+        --color-teal-300: rgba(50, 184, 198, 1);
+        --color-teal-400: rgba(45, 166, 178, 1);
+        --color-teal-500: rgba(33, 128, 141, 1);
+        --color-teal-600: rgba(29, 116, 128, 1);
+        --color-teal-700: rgba(26, 104, 115, 1);
+        --color-teal-800: rgba(41, 150, 161, 1);
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(
+          135deg,
+          var(--color-primary),
+          var(--color-teal-700)
+        );
+        min-height: 100vh;
+      }
+
+      .card {
+        background: rgba(15, 23, 42, 0.85);
+        backdrop-filter: blur(10px);
+      }
+
+      .feature-icon {
+        color: #06b6d4;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .testimonial-card {
+        transition: transform 0.3s ease;
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .language-toggle {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 30px;
+      }
+
+      .language-toggle input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #0f172a;
+        transition: 0.4s;
+        border-radius: 34px;
+        border: 1px solid #06b6d4;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 22px;
+        width: 22px;
+        left: 4px;
+        bottom: 3px;
+        background-color: #06b6d4;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+
+      input:checked + .slider:before {
+        transform: translateX(28px);
+      }
+
+      .slider-text {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 10px;
+        font-weight: bold;
+        color: white;
+      }
+
+      .en {
+        left: 8px;
+      }
+
+      .hi {
+        right: 8px;
+      }
+
+      input:checked ~ .slider-text.en {
+        color: #06b6d4;
+      }
+
+      input:not(:checked) ~ .slider-text.hi {
+        color: #06b6d4;
+      }
+    </style>
+  </head>
+  <body class="text-white">
+    <!-- Navigation -->
+    <nav class="container mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <div class="text-2xl font-bold">
+          <span class="text-cyan-400">Vend</span><span>ora</span>
+        </div>
+        <div class="hidden md:flex space-x-8 items-center">
+          <a href="#features" class="hover:text-cyan-400 transition"
+            >Features</a
+          >
+          <a href="#how-it-works" class="hover:text-cyan-400 transition"
+            >How It Works</a
+          >
+          <a href="#pricing" class="hover:text-cyan-400 transition">Pricing</a>
+          <a href="#testimonials" class="hover:text-cyan-400 transition"
+            >Testimonials</a
+          >
+          <a href="#faq" class="hover:text-cyan-400 transition">FAQ</a>
+          <a
+            href="login.html"
+            class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 transform hover:scale-105"
+          >
+            <span class="hi hidden">शुरू करें</span>
+            <span class="en">Get Started</span>
+          </a>
+          <div class="language-toggle ml-4">
+            <input type="checkbox" id="language-toggle" />
+            <label for="language-toggle" class="slider"></label>
+            <span class="slider-text en">EN</span>
+            <span class="slider-text hi">HI</span>
+          </div>
+        </div>
+        <div class="md:hidden">
+          <button class="text-2xl focus:outline-none">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="container mx-auto px-6 py-20">
+      <div
+        class="card max-w-4xl mx-auto rounded-2xl p-10 text-center shadow-2xl"
+      >
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          <span class="hi hidden">सप्लाई की टेंशन खत्म, बििजनेस पर फोकस!</span>
+          <span class="en">End Supply Stress, Focus on Business!</span>
+        </h1>
+        <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <span class="hi hidden"
+            >500+ विक्रेताओं को ₹3,000+ प्रति माह की बचत में मदद कर रहा है। बल्क
+            सप्लाई सब्सक्रिप्शन के माध्यम से।</span
+          >
+          <span class="en"
+            >Helping 500+ vendors save ₹3,000+ monthly through bulk supply
+            subscriptions.</span
+          >
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <button
+            class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105"
+          >
+            <a href="login.html"
+              ><span class="hi hidden">आज ही बचत शुरू करें - ₹300/माह</span></a
+            >
+            <a href="login.html"
+              ><span class="en">Start Saving Today – ₹300/month</span></a
+            >
+          </button>
+          <button
+            class="border-2 border-cyan-500 text-cyan-500 hover:bg-cyan-500 hover:text-white font-bold py-3 px-8 rounded-full transition duration-300"
+          >
+            <a href="#how-it-works"><span class="hi hidden">और जानें</span></a>
+            <a href="#how-it-works"><span class="en">Learn More</span></a>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="container mx-auto px-6 py-16">
+      <h2 class="text-3xl font-bold text-center mb-12">
+        <span class="hi hidden">क्यों Vendora चुनें?</span>
+        <span class="en">Why Choose Vendora?</span>
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="card p-8 rounded-2xl text-center">
+          <div class="feature-icon">
+            <i class="fas fa-tags"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">
+            <span class="hi hidden">बेहतर कीमत गारंटी</span>
+            <span class="en">Better Prices Guarantee</span>
+          </h3>
+          <p class="text-gray-300">
+            <span class="hi hidden">20-25% की थोक छूट</span>
+            <span class="en">Bulk discounts of 20–25%</span>
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="card p-8 rounded-2xl text-center">
+          <div class="feature-icon">
+            <i class="fas fa-truck"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">
+            <span class="hi hidden">तनाव मुक्त आपूर्ति</span>
+            <span class="en">Stress-Free Supply</span>
+          </h3>
+          <p class="text-gray-300">
+            <span class="hi hidden">स्वचालित दैनिक डिलीवरी</span>
+            <span class="en">Automated daily deliveries</span>
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="card p-8 rounded-2xl text-center">
+          <div class="feature-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">
+            <span class="hi hidden">प्रीमियम क्वालिटी</span>
+            <span class="en">Premium Quality</span>
+          </h3>
+          <p class="text-gray-300">
+            <span class="hi hidden">सत्यापित, ताजा आपूर्तिकर्ता</span>
+            <span class="en">Verified, fresh suppliers</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="container mx-auto px-6 py-16">
+      <h2 class="text-3xl font-bold text-center mb-12">
+        <span class="hi hidden">यह कैसे काम करता है</span>
+        <span class="en">How It Works</span>
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <!-- Step 1 -->
+        <div class="card p-6 rounded-2xl">
+          <div class="text-cyan-500 text-2xl font-bold mb-2">1</div>
+          <h3 class="text-xl font-bold mb-3">
+            <span class="hi hidden">जरूरी चीजें चुनें</span>
+            <span class="en">Select Essentials</span>
+          </h3>
+          <p class="text-gray-300">
+            <span class="hi hidden">अपनी दैनिक जरूरतों की सूची बनाएं</span>
+            <span class="en">Create your list of daily needs</span>
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="card p-6 rounded-2xl">
+          <div class="text-cyan-500 text-2xl font-bold mb-2">2</div>
+          <h3 class="text-xl font-bold mb-3">
+            <span class="hi hidden">डिलीवरी शेड्यूल सेट करें</span>
+            <span class="en">Set Delivery Schedule</span>
+          </h3>
+          <p class="text-gray-300">
+            <span class="hi hidden">समय और आवृत्ति चुनें</span>
+            <span class="en">Choose time and frequency</span>
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="card p-6 rounded-2xl">
+          <div class="text-cyan-500 text-2xl font-bold mb-2">3</div>
+          <h3 class="text-xl font-bold mb-3">
+            <span class="hi hidden">₹300/माह का भुगतान करें</span>
+            <span class="en">Pay ₹300/month</span>
+          </h3>
+          <p class="text-gray-300">
+            <span class="hi hidden">सदस्यता शुल्क</span>
+            <span class="en">Membership fee</span>
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="card p-6 rounded-2xl">
+          <div class="text-cyan-500 text-2xl font-bold mb-2">4</div>
+          <h3 class="text-xl font-bold mb-3">
+            <span class="hi hidden">छूट वाली आपूर्ति प्राप्त करें</span>
+            <span class="en">Receive Discounted Supplies</span>
+          </h3>
+          <p class="text-gray-300">
+            <span class="hi hidden">नियमित रूप से डिलीवरी प्राप्त करें</span>
+            <span class="en">Get regular deliveries</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Savings Highlight -->
+    <section class="container mx-auto px-6 py-16 text-center">
+      <div class="card max-w-2xl mx-auto p-8 rounded-2xl">
+        <h2 class="text-4xl font-bold mb-4 text-cyan-400">
+          <span class="hi hidden">₹3,500/माह तक बचााएं!</span>
+          <span class="en">Save up to ₹3,500/month!</span>
+        </h2>
+        <p class="text-xl text-gray-300">
+          <span class="hi hidden">हमारे सदस्यों की औसत मासिक बचत</span>
+          <span class="en">Average monthly savings for our members</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="container mx-auto px-6 py-16">
+      <h2 class="text-3xl font-bold text-center mb-12">
+        <span class="hi hidden">हमारे विक्रेता क्या कहते हैं</span>
+        <span class="en">What Our Vendors Say</span>
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card card p-6 rounded-2xl">
+          <div class="flex items-center mb-4">
+            <div
+              class="w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center text-xl font-bold"
+            >
+              R
+            </div>
+            <div class="ml-4">
+              <h4 class="font-bold">Rajesh Kumar</h4>
+              <p class="text-gray-400 text-sm">Delhi</p>
+            </div>
+          </div>
+          <p class="text-gray-300">
+            <span class="hi hidden"
+              >"Vendora ने मेरे जीवन को आसान बना दिया है। अब मैं अपने व्यवसाय पर
+              ध्यान केंद्रित कर सकता हूं।"</span
+            >
+            <span class="en"
+              >"Vendora has made my life easier. Now I can focus on my
+              business."</span
+            >
+          </p>
+          <div class="flex mt-4 text-amber-400">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card card p-6 rounded-2xl">
+          <div class="flex items-center mb-4">
+            <div
+              class="w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center text-xl font-bold"
+            >
+              P
+            </div>
+            <div class="ml-4">
+              <h4 class="font-bold">Priya Sharma</h4>
+              <p class="text-gray-400 text-sm">Mumbai</p>
+            </div>
+          </div>
+          <p class="text-gray-300">
+            <span class="hi hidden"
+              >"मैंने पिछले महीने ₹3,200 बचााए! यह सेवा वास्तव में काम करती
+              है।"</span
+            >
+            <span class="en"
+              >"I saved ₹3,200 last month! This service really works."</span
+            >
+          </p>
+          <div class="flex mt-4 text-amber-400">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card card p-6 rounded-2xl">
+          <div class="flex items-center mb-4">
+            <div
+              class="w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center text-xl font-bold"
+            >
+              A
+            </div>
+            <div class="ml-4">
+              <h4 class="font-bold">Amit Patel</h4>
+              <p class="text-gray-400 text-sm">Bangalore</p>
+            </div>
+          </div>
+          <p class="text-gray-300">
+            <span class="hi hidden"
+              >"आपूर्ति की गुणवत्ता उत्कृष्ट है, और कीमतें बाजार से बेहतर
+              हैं।"</span
+            >
+            <span class="en"
+              >"The supply quality is excellent, and prices are better than
+              market."</span
+            >
+          </p>
+          <div class="flex mt-4 text-amber-400">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="container mx-auto px-6 py-16">
+      <div class="card max-w-2xl mx-auto p-10 rounded-2xl text-center">
+        <h2 class="text-3xl font-bold mb-6">
+          <span class="hi hidden">सरल, पारदर्शी मूल्य निर्धारण</span>
+          <span class="en">Simple, Transparent Pricing</span>
+        </h2>
+        <div class="text-5xl font-bold mb-2 text-cyan-400">
+          ₹300<span class="text-xl text-gray-300">/month</span>
+        </div>
+        <p class="text-gray-300 mb-8">
+          <span class="hi hidden">सदस्यता शुल्क</span>
+          <span class="en">Membership fee</span>
+        </p>
+        <ul class="text-left max-w-md mx-auto mb-8 space-y-3">
+          <li class="flex items-center">
+            <i class="fas fa-check text-cyan-500 mr-2"></i>
+            <span class="hi hidden">कभी भी रद्द करें</span>
+            <span class="en">Cancel anytime</span>
+          </li>
+          <li class="flex items-center">
+            <i class="fas fa-check text-cyan-500 mr-2"></i>
+            <span class="hi hidden">14-दिन का नििःशुल्क परीक्षण</span>
+            <span class="en">14-day free trial</span>
+          </li>
+          <li class="flex items-center">
+            <i class="fas fa-check text-cyan-500 mr-2"></i>
+            <span class="hi hidden">कोई छिपी हुुई फीस नहीं</span>
+            <span class="en">No hidden fees</span>
+          </li>
+          <li class="flex items-center">
+            <i class="fas fa-check text-cyan-500 mr-2"></i>
+            <span class="hi hidden">थोक छूट (बाजार दरों से 20-25% कम)</span>
+            <span class="en"
+              >Access to bulk discounts (20–25% off market rates)</span
+            >
+          </li>
+
+          <li class="flex items-center">
+            <i class="fas fa-check text-cyan-500 mr-2"></i>
+            <span class="hi hidden">मुफ़्त निर्धारित डिलीवरी</span>
+            <span class="en">Free scheduled deliveries</span>
+          </li>
+
+          <li class="flex items-center">
+            <i class="fas fa-check text-cyan-500 mr-2"></i>
+            <span class="hi hidden">प्रीमियम गुणवत्ता वाली सामग्री</span>
+            <span class="en">Premium quality ingredients</span>
+          </li>
+
+          <li class="flex items-center">
+            <i class="fas fa-check text-cyan-500 mr-2"></i>
+            <span class="hi hidden">24/7 ग्राहक सहायता</span>
+            <span class="en">24/7 customer support</span>
+          </li>
+        </ul>
+        <button
+          class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 w-full max-w-xs mx-auto"
+        >
+          <span class="hi hidden">अभी शामिल हों</span>
+          <span class="en">Join Now</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container mx-auto px-6 py-16">
+      <h2 class="text-3xl font-bold text-center mb-12">
+        <span class="hi hidden">सामान्य प्रश्न</span>
+        <span class="en">Frequently Asked Questions</span>
+      </h2>
+      <div class="max-w-3xl mx-auto space-y-4">
+        <!-- FAQ 1 -->
+        <div class="card p-6 rounded-2xl">
+          <button class="flex justify-between items-center w-full text-left">
+            <h3 class="font-bold">
+              <span class="hi hidden">मूल्य निर्धारण कैसे काम करता है?</span>
+              <span class="en">How does pricing work?</span>
+            </h3>
+            <i
+              class="fas fa-chevron-down text-cyan-500 transition-transform duration-300"
+            ></i>
+          </button>
+          <div class="mt-3 text-gray-300 hidden">
+            <p class="hi hidden">
+              आप ₹300 मासिक सदस्यता शुल्क का भुगतान करते हैं, जो आपको हमारे सभी
+              आपूर्तिकर्ताओं से थोक छूट (20-25% तक) तक पहुंच प्रदान करता है। आप
+              वास्तविक आपूर्ति के लिए अलग से भुगतान करते हैं, लेकिन छूट वाली
+              कीमतों पर।
+            </p>
+            <p class="en">
+              You pay a ₹300 monthly membership fee which gives you access to
+              bulk discounts (up to 20-25%) from all our suppliers. You pay
+              separately for the actual supplies but at discounted prices.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="card p-6 rounded-2xl">
+          <button class="flex justify-between items-center w-full text-left">
+            <h3 class="font-bold">
+              <span class="hi hidden">डिलीवरी कैसे काम करती है?</span>
+              <span class="en">How does delivery work?</span>
+            </h3>
+            <i
+              class="fas fa-chevron-down text-cyan-500 transition-transform duration-300"
+            ></i>
+          </button>
+          <div class="mt-3 text-gray-300 hidden">
+            <p class="hi hidden">
+              हम आपके द्वारा चुने गए शेड्यूल के अनुसार दैनिक डिलीवरी प्रदान करते
+              हैं। आप हमारे ऐप में समय और आवृत्ति सेट कर सकते हैं।
+            </p>
+            <p class="en">
+              We provide daily deliveries according to your chosen schedule. You
+              can set the time and frequency in our app.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="card p-6 rounded-2xl">
+          <button class="flex justify-between items-center w-full text-left">
+            <h3 class="font-bold">
+              <span class="hi hidden"
+                >आप गुणवत्ता की गारंटी कैसे देते हैं?</span
+              >
+              <span class="en">How do you guarantee quality?</span>
+            </h3>
+            <i
+              class="fas fa-chevron-down text-cyan-500 transition-transform duration-300"
+            ></i>
+          </button>
+          <div class="mt-3 text-gray-300 hidden">
+            <p class="hi hidden">
+              हम केवल सत्यापित आपूर्तिकर्ताओं के सााथ काम करते हैं जो हमारे
+              गुणवत्ता मानकों को पूरा करते हैं। यदि आप किसी आइटम से संतुष्ट नहीं
+              हैं, तो हम उसे बिना किसी सवाल के बदल देंगे।
+            </p>
+            <p class="en">
+              We only work with verified suppliers who meet our quality
+              standards. If you're not satisfied with any item, we'll replace it
+              no questions asked.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="card p-6 rounded-2xl">
+          <button class="flex justify-between items-center w-full text-left">
+            <h3 class="font-bold">
+              <span class="hi hidden">भुगतान के विकल्प क्या हैं?</span>
+              <span class="en">What payment options are available?</span>
+            </h3>
+            <i
+              class="fas fa-chevron-down text-cyan-500 transition-transform duration-300"
+            ></i>
+          </button>
+          <div class="mt-3 text-gray-300 hidden">
+            <p class="hi hidden">
+              हम UPI, क्रेडिट/डेबिट कार्ड, नेट बैंकिंग और वॉलेट भुगतान स्वीकार
+              करते हैं। आप मासिक या वार्षिक भुगतान कर सकते हैं।
+            </p>
+            <p class="en">
+              We accept UPI, credit/debit cards, net banking, and wallet
+              payments. You can pay monthly or annually.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="container mx-auto px-6 py-20 text-center">
+      <div class="card max-w-4xl mx-auto rounded-2xl p-10 shadow-2xl">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          <span class="hi hidden">आज ही अपनी बचत शुरू करें!</span>
+          <span class="en">Start Saving Today!</span>
+        </h2>
+        <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <span class="hi hidden"
+            >14-दिन का निःशुल्क परीक्षण। कोई क्रेडििट कार्ड की आवश्यकता
+            नहीं।</span
+          >
+          <span class="en">14-day free trial. No credit card required.</span>
+        </p>
+        <button
+          class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105"
+        >
+          <span class="hi hidden">अभी सााइन अप करें</span>
+          <span class="en">Sign Up Now</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 bg-opacity-50 py-12">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">
+              <span class="text-cyan-400">Vend</span><span>ora</span>
+            </h3>
+            <p class="text-gray-400">
+              <span class="hi hidden"
+                >भारतीय स्ट्रीट फूड विक्रेताओं के लिए आपूर्ति समाधान</span
+              >
+              <span class="en"
+                >Supply solution for Indian street food vendors</span
+              >
+            </p>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">
+              <span class="hi hidden">लिंक</span>
+              <span class="en">Links</span>
+            </h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#features"
+                  class="text-gray-400 hover:text-cyan-400 transition"
+                  ><span class="hi hidden">विशेषतााएं</span
+                  ><span class="en">Features</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#how-it-works"
+                  class="text-gray-400 hover:text-cyan-400 transition"
+                  ><span class="hi hidden">यह कैसे काम करता है</span
+                  ><span class="en">How It Works</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#pricing"
+                  class="text-gray-400 hover:text-cyan-400 transition"
+                  ><span class="hi hidden">मूल्य निर्धारण</span
+                  ><span class="en">Pricing</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#testimonials"
+                  class="text-gray-400 hover:text-cyan-400 transition"
+                  ><span class="hi hidden">समीक्षााएं</span
+                  ><span class="en">Testimonials</span></a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">
+              <span class="hi hidden">कानूनी</span>
+              <span class="en">Legal</span>
+            </h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-400 hover:text-cyan-400 transition"
+                  ><span class="hi hidden">गोपनीयता नीति</span
+                  ><span class="en">Privacy Policy</span></a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-cyan-400 transition"
+                  ><span class="hi hidden">उपयोग की शर्तें</span
+                  ><span class="en">Terms of Use</span></a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-cyan-400 transition"
+                  ><span class="hi hidden">वापसी नीति</span
+                  ><span class="en">Refund Policy</span></a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">
+              <span class="hi hidden">संपर्क करें</span>
+              <span class="en">Contact Us</span>
+            </h4>
+            <ul class="space-y-2">
+              <li class="flex items-center text-gray-400">
+                <i class="fas fa-envelope mr-2 text-cyan-400"></i>
+                hello@vendora.in
+              </li>
+              <li class="flex items-center text-gray-400">
+                <i class="fas fa-phone mr-2 text-cyan-400"></i> +91 98765 43210
+              </li>
+              <li class="flex items-center text-gray-400">
+                <i class="fas fa-map-marker-alt mr-2 text-cyan-400"></i> Mumbai,
+                India
+              </li>
+            </ul>
+            <div class="flex space-x-4 mt-4">
+              <a href="#" class="text-gray-400 hover:text-cyan-400 transition"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="text-gray-400 hover:text-cyan-400 transition"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="text-gray-400 hover:text-cyan-400 transition"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="text-gray-400 hover:text-cyan-400 transition"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500"
+        >
+          <p>
+            <span class="hi hidden">© 2023 Vendora. सर्वाधिकार सुरक्षित।</span>
+            <span class="en">© 2023 Vendora. All rights reserved.</span>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Language toggle functionality
+      const languageToggle = document.getElementById("language-toggle");
+      const hindiElements = document.querySelectorAll(".hi");
+      const englishElements = document.querySelectorAll(".en");
+
+      languageToggle.addEventListener("change", function () {
+        if (this.checked) {
+          hindiElements.forEach((el) => el.classList.remove("hidden"));
+          englishElements.forEach((el) => el.classList.add("hidden"));
+        } else {
+          hindiElements.forEach((el) => el.classList.add("hidden"));
+          englishElements.forEach((el) => el.classList.remove("hidden"));
+        }
+      });
+
+      // FAQ accordion functionality
+      const faqButtons = document.querySelectorAll("#faq button");
+      faqButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const content = button.nextElementSibling;
+          const icon = button.querySelector("i");
+
+          content.classList.toggle("hidden");
+          icon.classList.toggle("rotate-180");
+        });
+      });
+
+      // Mobile menu toggle (would need additional HTML)
+      const mobileMenuButton = document.querySelector(".md\\:hidden button");
+      const mobileMenu = document.createElement("div"); // You would need to properly implement this
+
+      mobileMenuButton.addEventListener("click", () => {
+        // Implement mobile menu toggle
+      });
+    </script>
+  </body>
+</html>

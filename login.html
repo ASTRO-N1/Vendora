@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vendora - Grocery Delivery</title>
+    <link rel="stylesheet" href="login_style.css" />
+  </head>
+  <body>
+    <!-- Authentication Screen -->
+    <section id="authScreen" class="screen auth-screen">
+      <div class="auth-container">
+        <div class="auth-card card">
+          <div class="card__body">
+            <div class="auth-header">
+              <h1 class="auth-title">Vendora</h1>
+              <p class="auth-subtitle">Your grocery delivery service</p>
+            </div>
+
+            <!-- Tab buttons -->
+            <div class="auth-tabs">
+              <button type="button" class="auth-tab active" data-tab="login">
+                Login
+              </button>
+              <button type="button" class="auth-tab" data-tab="signup">
+                Sign Up
+              </button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form active">
+              <div class="form-group">
+                <label class="form-label" for="loginEmail">Email</label>
+                <input
+                  type="email"
+                  id="loginEmail"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="loginPassword">Password</label>
+                <input
+                  type="password"
+                  id="loginPassword"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                class="btn btn--primary btn--full-width"
+                id="loginBtn"
+              >
+                <span class="btn-text">Login</span>
+                <div class="btn-spinner hidden"></div>
+              </button>
+            </form>
+
+            <!-- Signup Form -->
+            <form id="signupForm" class="auth-form">
+              <div class="form-group">
+                <label class="form-label" for="signupName">Full Name</label>
+                <input
+                  type="text"
+                  id="signupName"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="signupEmail">Email</label>
+                <input
+                  type="email"
+                  id="signupEmail"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="signupPassword">Password</label>
+                <input
+                  type="password"
+                  id="signupPassword"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="signupConfirmPassword"
+                  >Confirm Password</label
+                >
+                <input
+                  type="password"
+                  id="signupConfirmPassword"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                class="btn btn--primary btn--full-width"
+                id="signupBtn"
+              >
+                <span class="btn-text">Create Account</span>
+                <div class="btn-spinner hidden"></div>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Welcome Screen -->
+    <section id="welcomeScreen" class="screen welcome-screen hidden">
+      <div class="welcome-container">
+        <h1 id="welcomeText" class="welcome-text">Welcome!</h1>
+        <button type="button" class="logout-btn" id="logoutBtn">Logout</button>
+      </div>
+    </section>
+
+    <!-- Form 1 -->
+    <section id="form1" class="screen hidden">
+      <div class="form-container">
+        <div class="card">
+          <div class="card__body">
+            <div class="form-header">
+              <h2>Personal Information</h2>
+              <button type="button" class="logout-btn-small" id="logoutBtn1">
+                Logout
+              </button>
+            </div>
+            <form id="personalInfoForm">
+              <div class="form-group">
+                <label class="form-label" for="firstName">First Name</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lastName">Last Name</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="phone">Phone Number</label>
+                <input type="tel" id="phone" class="form-control" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="address">Address</label>
+                <input type="text" id="address" class="form-control" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="preferences"
+                  >Dietary Preferences</label
+                >
+                <input type="text" id="preferences" class="form-control" />
+              </div>
+              <button
+                type="button"
+                class="btn btn--primary btn--full-width"
+                id="form1Next"
+              >
+                NEXT
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Form 2 -->
+    <section id="form2" class="screen hidden">
+      <div class="form-container">
+        <div class="card">
+          <div class="card__body">
+            <div class="form-header">
+              <h2>Delivery Details</h2>
+              <button type="button" class="logout-btn-small" id="logoutBtn2">
+                Logout
+              </button>
+            </div>
+            <form id="deliveryInfoForm">
+              <div class="form-group">
+                <label class="form-label" for="deliveryTime"
+                  >Preferred Delivery Time</label
+                >
+                <select id="deliveryTime" class="form-control" required>
+                  <option value="">Select time</option>
+                  <option value="Morning">Morning</option>
+                  <option value="Afternoon">Afternoon</option>
+                  <option value="Evening">Evening</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="frequency"
+                  >Delivery Frequency</label
+                >
+                <select id="frequency" class="form-control" required>
+                  <option value="">Select frequency</option>
+                  <option value="Weekly">Weekly</option>
+                  <option value="Bi-weekly">Bi-weekly</option>
+                  <option value="Monthly">Monthly</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="specialInstructions"
+                  >Special Instructions</label
+                >
+                <textarea
+                  id="specialInstructions"
+                  class="form-control"
+                  rows="3"
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="emergencyContact"
+                  >Emergency Contact</label
+                >
+                <input
+                  type="text"
+                  id="emergencyContact"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="budget"
+                  >Monthly Budget ($)</label
+                >
+                <input
+                  type="number"
+                  id="budget"
+                  class="form-control"
+                  min="0"
+                  step="0.01"
+                  required
+                />
+              </div>
+              <button
+                type="button"
+                class="btn btn--primary btn--full-width"
+                id="form2Next"
+              >
+                NEXT
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Select Message -->
+    <section id="selectMessage" class="screen hidden">
+      <div class="message-container">
+        <h1 class="select-text">Select items for recurring order</h1>
+      </div>
+    </section>
+
+    <!-- Shopping Page -->
+    <section id="shoppingPage" class="screen hidden">
+      <div class="shopping-header">
+        <div class="container">
+          <div class="shopping-nav">
+            <h2 class="shopping-title">Grocery Store</h2>
+            <button type="button" class="logout-btn-small" id="logoutBtn3">
+              Logout
+            </button>
+          </div>
+          <div class="search-container">
+            <input
+              type="text"
+              id="searchInput"
+              class="form-control search-input"
+              placeholder="Search products..."
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div id="productGrid" class="product-grid">
+          <!-- Products will be populated by JavaScript -->
+        </div>
+      </div>
+
+      <!-- Floating Checkout Button -->
+      <button type="button" id="checkoutButton" class="checkout-btn">
+        <span class="cart-icon">🛒</span>
+        <span id="cartBadge" class="cart-badge hidden">0</span>
+      </button>
+
+      <!-- Toast Notification -->
+      <div id="toast" class="toast hidden">
+        <span id="toastMessage"></span>
+      </div>
+    </section>
+
+    <!-- Loading Screen -->
+    <section id="loadingScreen" class="screen hidden">
+      <div class="loading-container">
+        <div class="loading-content">
+          <div class="loading-spinner"></div>
+          <h2 class="loading-text">Processing your order...</h2>
+          <p class="loading-subtitle">
+            Please wait while we save your order to the database.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Screen -->
+    <section id="successScreen" class="screen hidden">
+      <div class="success-container">
+        <div class="success-content">
+          <div class="success-icon">✅</div>
+          <h1 class="success-text">Order Placed Successfully!</h1>
+          <p class="success-subtitle">
+            Thank you for your order. We'll deliver your groceries soon.
+          </p>
+          <button
+            type="button"
+            class="btn btn--primary"
+            id="continueShoppingBtn"
+          >
+            Go To Dashboard
+          </button>
+          <button type="button" class="btn btn--outline" id="logoutBtn4">
+            Logout
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Error Screen -->
+    <section id="errorScreen" class="screen hidden">
+      <div class="error-container">
+        <div class="error-content">
+          <h1 class="error-title">Oops! Something went wrong</h1>
+          <p class="error-subtitle">
+            We couldn't save your order. Please try again.
+          </p>
+          <button type="button" class="btn btn--primary" id="retryButton">
+            Try Again
+          </button>
+          <button type="button" class="btn btn--outline" id="logoutBtn5">
+            Logout
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <script src="login_app.js" type="module"></script>
+  </body>
+</html>

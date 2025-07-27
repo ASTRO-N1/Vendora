@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vendora Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- Sidebar -->
+      <nav class="sidebar">
+        <div class="sidebar-header">
+          <div class="user-avatar">
+            <div class="avatar-placeholder">👤</div>
+          </div>
+          <div class="user-info">
+            <h3 id="userName">Loading...</h3>
+            <p id="userEmail">user@example.com</p>
+          </div>
+        </div>
+
+        <ul class="nav-menu">
+          <li>
+            <button class="nav-btn active" data-section="home">🏠 Home</button>
+          </li>
+          <li>
+            <button class="nav-btn" data-section="profile">👤 Profile</button>
+          </li>
+          <li>
+            <button class="nav-btn" data-section="history">
+              📋 Purchase History
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-section="recurring">
+              🔄 Recurring Order
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn logout-btn" data-section="logout">
+              🚪 Logout
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="content-section active">
+          <div class="section-header">
+            <h1>Dashboard</h1>
+            <p>Welcome back! Here's your grocery overview.</p>
+          </div>
+
+          <!-- Current Recurring Items -->
+          <div class="card">
+            <div class="card__body">
+              <div class="card-header-with-action">
+                <h2>Current Recurring Items</h2>
+                <button class="btn btn--outline btn--sm" id="viewMoreBtn">
+                  View More
+                </button>
+              </div>
+              <div id="recurringItems" class="recurring-items">
+                <div class="loading-state">Loading your recurring items...</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add to Cart -->
+          <div class="card">
+            <div class="card__body">
+              <h2>Add to Cart</h2>
+              <div class="search-container">
+                <input
+                  type="text"
+                  id="productSearch"
+                  class="form-control"
+                  placeholder="Search products..."
+                />
+              </div>
+              <div id="productGrid" class="product-grid">
+                <!-- Products will be loaded here -->
+              </div>
+              <div id="cartSummary" class="cart-summary hidden">
+                <div class="cart-items"></div>
+                <div class="cart-total">
+                  <strong>Total: ₹<span id="cartTotal">0.00</span></strong>
+                </div>
+                <button class="btn btn--primary" id="confirmCartBtn">
+                  Confirm Order
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile" class="content-section">
+          <div class="section-header">
+            <h1>Profile</h1>
+            <p>Manage your personal information and preferences.</p>
+          </div>
+
+          <div class="card">
+            <div class="card__body">
+              <div class="card-header-with-action">
+                <h2>Personal Information</h2>
+                <button class="btn btn--outline btn--sm" id="editProfileBtn">
+                  Edit
+                </button>
+              </div>
+              <form id="profileForm" class="profile-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">First Name</label>
+                    <input
+                      type="text"
+                      id="profileFirstName"
+                      class="form-control"
+                      readonly
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Last Name</label>
+                    <input
+                      type="text"
+                      id="profileLastName"
+                      class="form-control"
+                      readonly
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Phone</label>
+                  <input
+                    type="tel"
+                    id="profilePhone"
+                    class="form-control"
+                    readonly
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Address</label>
+                  <textarea
+                    id="profileAddress"
+                    class="form-control"
+                    readonly
+                  ></textarea>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Delivery Preferences</label>
+                  <textarea
+                    id="profilePreferences"
+                    class="form-control"
+                    readonly
+                  ></textarea>
+                </div>
+                <div class="form-actions hidden">
+                  <button
+                    type="button"
+                    class="btn btn--primary"
+                    id="saveProfileBtn"
+                  >
+                    Save Changes
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn--outline"
+                    id="cancelEditBtn"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__body">
+              <h2>Delivery Settings</h2>
+              <form id="deliveryForm" class="profile-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">Delivery Time</label>
+                    <select
+                      id="profileDeliveryTime"
+                      class="form-control"
+                      disabled
+                    >
+                      <option value="morning">Morning (8-12 PM)</option>
+                      <option value="afternoon">Afternoon (12-6 PM)</option>
+                      <option value="evening">Evening (6-10 PM)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Frequency</label>
+                    <select id="profileFrequency" class="form-control" disabled>
+                      <option value="weekly">Weekly</option>
+                      <option value="biweekly">Bi-weekly</option>
+                      <option value="monthly">Monthly</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Special Instructions</label>
+                  <textarea
+                    id="profileSpecialInstructions"
+                    class="form-control"
+                    readonly
+                  ></textarea>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Emergency Contact</label>
+                  <input
+                    type="tel"
+                    id="profileEmergencyContact"
+                    class="form-control"
+                    readonly
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- Purchase History Section -->
+        <section id="history" class="content-section">
+          <div class="section-header">
+            <h1>Purchase History</h1>
+            <p>Review your recent orders and purchases.</p>
+          </div>
+
+          <div id="orderHistory" class="order-history">
+            <div class="loading-state">Loading your purchase history...</div>
+          </div>
+        </section>
+
+        <!-- Recurring Order Section -->
+        <section id="recurring" class="content-section">
+          <div class="section-header">
+            <h1>Recurring Order</h1>
+            <p>Manage your recurring grocery deliveries.</p>
+          </div>
+
+          <div class="card">
+            <div class="card__body">
+              <div id="recurringItemsGrid" class="recurring-grid">
+                <div class="loading-state">Loading recurring items...</div>
+              </div>
+              <button
+                id="editRecurringBtn"
+                class="btn btn--outline btn--sm"
+                style="margin-top: 10px"
+              >
+                Edit Items
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+      <div class="loading-spinner"></div>
+      <p>Loading...</p>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Firebase SDKs -->
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
